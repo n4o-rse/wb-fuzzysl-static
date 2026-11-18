@@ -2,3 +2,15 @@ class,crm_class,note
 Q79,crm:E53_Place,Site: root of the site classes
 Q146,crm:E53_Place,the CRM class itself; stated in P37
 Q147,crm:E26_Physical_Feature,the CRM class itself; stated in P37
+Q2,model,Source: literature and other sources of a statement
+Q3,model,Site Type: vocabulary class
+Q4,model,Spatial Type: vocabulary class
+Q5,model,Project: provenance of the data; E7_Activity would fit
+Q6,model,Certainty Level: vocabulary class
+Q7,model,Method Type: vocabulary class
+Q21,model,Person: agent of the data; E21_Person would fit
+Q22,model,Generic Class: generic class of the model
+Q81,model,Location Type: vocabulary class
+Q91,model,Spatial Category: vocabulary class
+Q125,model,Point Type: vocabulary class
+Q145,model,CIDOC-CRM Class: class of the CRM class items Q146 and Q147
