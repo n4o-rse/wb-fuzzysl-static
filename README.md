@@ -1,8 +1,8 @@
-# fuzzy-sl-static
+# wb-fuzzysl-static
 
 Static, read-only copy of the Wikibase <https://fuzzy-sl.wikibase.cloud>, built with
 [wikibase-static](https://github.com/n4o-rse/wikibase-static).
-The URIs of the RDF export and the concept URIs (`https://n4o-rse.github.io/fuzzy-sl-static/entity/Q20`) are those of this
+The URIs of the RDF export and the concept URIs (`https://n4o-rse.github.io/wb-fuzzysl-static/entity/Q20`) are those of this
 site (`rdf_base` in `site.yaml`), not those of the source: the copy has to stand if the source is gone. The source is named
 as the source (footer, `dcterms:source`), nothing more.
 
@@ -14,7 +14,7 @@ a language switch, a search box, maps for coordinates, the logo top left, laid o
 a licence other than CC0.
 The search box finds an entity by label, alias or Q-/P-id (`python main.py search` writes its index,
 `docs/assets/search-index.js`; the default run does).
-The data is also published as RDF in the data model of Wikibase: `dist/n4o-rse.github.io-fuzzy-sl-static.ttl` (everything, described with DCAT 3),
+The data is also published as RDF in the data model of Wikibase: `dist/n4o-rse.github.io-wb-fuzzysl-static.ttl` (everything, described with DCAT 3),
 `docs/ttl/Q1.ttl` and `docs/json/Q1.json` (one file per entity), and `docs/sparql.html` (example queries) and `docs/query.html` (a free query editor with table, map and image views) let you query it in the browser
 (`python main.py rdf`, `python main.py sparql`; the default run does both). The work plan is `PRIMER.md` in `wikibase-static`.
 
@@ -56,9 +56,11 @@ changed; a failing step stops it before anything is pushed.
 ## Publishing
 
 `.github/workflows/site.yml` runs on every push and pull request: `python main.py --strict` twice, with
-`git status` required to be clean after each run (so the committed `docs/` is what a fresh build makes),
-and, on `main`, publishes `docs/` to GitHub Pages. Set Settings, Pages, Source to "GitHub Actions" once.
-After a harvest or a change to `site.yaml`, run `python main.py` and commit `data/` and `docs/` together.
+`git status` required to be clean after each run and the hash of `docs/`, `dist/` and `data/derived/` the same,
+and, on `main`, publishes the `docs/` of that build to GitHub Pages. `docs/` and `data/derived/` are not committed:
+the CI makes them. Set Settings, Pages, Source to "GitHub Actions" once.
+After a change to `site.yaml` run `python main.py --strict` and commit; to read the source again run `harvest.cmd`
+(it installs the pinned package, harvests, builds, commits `data/raw/` and `dist/` and pushes).
 
 ## Data
 

@@ -4,10 +4,10 @@ description: Static, read-only copy of the Wikibase fuzzy-sl.wikibase.cloud. The
 source:
   url: https://fuzzy-sl.wikibase.cloud
 # Where docs/ is published; the RDF export needs it for the download URLs of its DCAT distributions.
-pages_url: https://n4o-rse.github.io/fuzzy-sl-static/
+pages_url: https://n4o-rse.github.io/wb-fuzzysl-static/
 # The URIs of the RDF export and the concept URIs are those of this site, not of the source Wikibase: if that is gone,
 # nothing here may point to it. (Without this line the base would be source.url.)
-rdf_base: https://n4o-rse.github.io/fuzzy-sl-static
+rdf_base: https://n4o-rse.github.io/wb-fuzzysl-static
 languages:
   default: en
   second: de

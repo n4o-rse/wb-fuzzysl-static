@@ -1,9 +1,9 @@
-# Checks the committed site and publishes docs/ to GitHub Pages. The logic is in the reusable workflow of
-# wikibase-static (PRIMER.md there, S8): `python main.py --strict` twice, the working tree must be clean after
-# each run (so docs/ is what a fresh build makes), a dead internal link makes the run red, and docs/ is
-# deployed only after that, on the default branch.
+# Builds the site and publishes docs/ to GitHub Pages. The logic is in the reusable workflow of wikibase-static (PRIMER.md there,
+# S8): the command below twice, the working tree must be clean after each run and the hash of docs/, dist/ and data/derived/ the
+# same (docs/ and data/derived/ are not committed here, the CI makes them), a dead internal link makes the run red; only then the
+# deploy job publishes the docs/ of that build.
 #
-# Once per repository: Settings -> Pages -> Source: "GitHub Actions".
+# Once per repository, BEFORE the first push: Settings -> Pages -> Source: "GitHub Actions".
 
 name: Site
 
@@ -20,3 +20,6 @@ jobs:
       contents: read
       pages: write
       id-token: write
+    with:
+      command: python main.py --strict
+      deploy: true
